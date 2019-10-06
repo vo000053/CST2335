@@ -20,23 +20,26 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //Shared Preferences
         EditText editText = findViewById(R.id.editText2);
         SharedPreferences prefs = getSharedPreferences("SavedEmail", MODE_PRIVATE);
-        String previous = prefs.getString("ReserveName", "");
+        String previous = prefs.getString("ReserveName", "Foundation");
 
-        editText.setText(previous);
+        //editText.setText(previous);
 
         Button loginButton = findViewById(R.id.button);
         if(loginButton != null)
             loginButton.setOnClickListener(e -> {
-                Intent goToPage2 = new Intent(MainActivity.this, ProfileActivity.class);
-                startActivity(goToPage2);
-            });
-    }
+
+            Intent goToPage2 = new Intent(MainActivity.this, ProfileActivity.class);
+            goToPage2.putExtra("email", editText.getText().toString());
+            startActivity(goToPage2);
+        });
+}
 
     @Override
     protected void onPause() {

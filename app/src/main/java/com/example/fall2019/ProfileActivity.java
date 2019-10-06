@@ -1,11 +1,13 @@
 package com.example.fall2019;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -16,23 +18,34 @@ public class ProfileActivity extends AppCompatActivity {
     public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
     static final int REQUEST_IMAGE_CAPTURE = 1;
     ImageButton mImageButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_activity);
 
-        mImageButton = (ImageButton)findViewById(R.id.imageButton3);
 
+
+        Log.e(ACTIVITY_NAME, "In function:" + "onCreate");
+        String preEmail = getIntent().getStringExtra("email");
+        EditText editText = findViewById(R.id.editText7);
+        editText.setText(preEmail);
+
+        mImageButton = (ImageButton)findViewById(R.id.imageButton3);
         if(mImageButton != null)
             mImageButton.setOnClickListener(v -> dispatchTakePictureIntent());
 
-        Log.e(ACTIVITY_NAME, "In function:" + "onCreate");
-        Log.e(ACTIVITY_NAME, "In function:" + "onStart");
-        Log.e(ACTIVITY_NAME, "In function:" + "onResume");
-        Log.e(ACTIVITY_NAME, "In function:" + "onPause");
-        Log.e(ACTIVITY_NAME, "In function:" + "onStop");
-        Log.e(ACTIVITY_NAME, "In function:" + "onDestroy");
-        Log.e(ACTIVITY_NAME, "In function:" + "onActivityResultonStart");
+
+
+            //GO TO CHAT
+            Button goToChat = findViewById(R.id.button3);
+            if(goToChat != null)
+                goToChat.setOnClickListener(e -> {
+
+                    Intent goToChatPage = new Intent(ProfileActivity.this, ChatRoomActivity.class);
+                    startActivity(goToChatPage);
+                });
+
 
     }
 
@@ -50,6 +63,42 @@ public class ProfileActivity extends AppCompatActivity {
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             mImageButton.setImageBitmap(imageBitmap);
         }
+
+        //Log.e(ACTIVITY_NAME, "In function:" + "onActivityResult");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+       //Log.e(ACTIVITY_NAME, "In function:" + "onStart");
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+       // Log.e(ACTIVITY_NAME, "In function:" + "onResume");
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+      //  Log.e(ACTIVITY_NAME, "In function:" + "onPause");
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+       // Log.e(ACTIVITY_NAME, "In function:" + "onStop");
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+       // Log.e(ACTIVITY_NAME, "In function:" + "onDestroy");
     }
 
 
