@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("SavedEmail", MODE_PRIVATE);
         String previous = prefs.getString("ReserveName", "Foundation");
 
-        //editText.setText(previous);
+        editText.setText(previous);
 
         Button loginButton = findViewById(R.id.button);
         if(loginButton != null)

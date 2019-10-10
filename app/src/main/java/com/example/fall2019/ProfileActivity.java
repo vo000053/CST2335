@@ -64,41 +64,41 @@ public class ProfileActivity extends AppCompatActivity {
             mImageButton.setImageBitmap(imageBitmap);
         }
 
-        //Log.e(ACTIVITY_NAME, "In function:" + "onActivityResult");
+        Log.e(ACTIVITY_NAME, "In function:" + "onActivityResult");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-       //Log.e(ACTIVITY_NAME, "In function:" + "onStart");
+       Log.e(ACTIVITY_NAME, "In function:" + "onStart");
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-       // Log.e(ACTIVITY_NAME, "In function:" + "onResume");
+        Log.e(ACTIVITY_NAME, "In function:" + "onResume");
 
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-      //  Log.e(ACTIVITY_NAME, "In function:" + "onPause");
+       Log.e(ACTIVITY_NAME, "In function:" + "onPause");
 
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-       // Log.e(ACTIVITY_NAME, "In function:" + "onStop");
+        Log.e(ACTIVITY_NAME, "In function:" + "onStop");
 
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-       // Log.e(ACTIVITY_NAME, "In function:" + "onDestroy");
+        Log.e(ACTIVITY_NAME, "In function:" + "onDestroy");
     }
 
 
